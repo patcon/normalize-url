@@ -99,6 +99,21 @@ normalizeUrl('http://www.sindresorhus.com/about.html#contact', {stripWWW: false}
 //=> 'http://www.sindresorhus.com/about.html#contact'
 ```
 
+##### removeDuplicateSlashes
+
+Type: `boolean`<br>
+Default: `true`
+
+Remove unneeded duplicate slashes from the URL.
+
+```js
+normalizeUrl('http://sindresorhus.com//about.html');
+//=> 'http://sindresorhus.com/about.html'
+
+normalizeUrl('http://sindresorhus.com//about.html',{removeDuplicateSlashes: false});
+//=> 'http://sindresorhus.com//about.html'
+```
+
 ##### removeQueryParameters
 
 Type: `Array<RegExp|string>`<br>

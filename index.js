@@ -35,6 +35,7 @@ module.exports = (str, opts) => {
 		normalizeHttps: false,
 		stripFragment: true,
 		stripWWW: true,
+		removeDuplicateSlashes: true,
 		removeQueryParameters: [/^utm_\w+/i],
 		removeTrailingSlash: true,
 		removeDirectoryIndex: false
@@ -75,7 +76,7 @@ module.exports = (str, opts) => {
 	}
 
 	// Remove duplicate slashes
-	if (urlObj.pathname) {
+	if (urlObj.pathname && opts.removeDuplicateSlashes === true) {
 		urlObj.pathname = urlObj.pathname.replace(/\/{2,}/g, '/');
 	}
 
